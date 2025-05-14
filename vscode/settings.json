@@ -11,7 +11,7 @@
     "terminal.integrated.windowsEnableConpty": true,
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.defaultLocation": "editor",
-    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontSize": 26,
     "terminal.integrated.mouseWheelZoom": true,
     "terminal.integrated.mouseWheelScrollSensitivity": 10,
 
@@ -35,7 +35,7 @@
     "workbench.editor.tabSizingFixedMaxWidth": 100,
     "workbench.editor.tabSizingFixedMinWidth": 38,
     "window.density.editorTabHeight": "compact",
-    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.colorTheme": "Atom One Dark",
     "workbench.sideBar.location": "right",
     "window.customTitleBarVisibility": "windowed",
     "diffEditor.hideUnchangedRegions.enabled": true,
