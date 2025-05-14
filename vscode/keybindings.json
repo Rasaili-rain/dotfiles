@@ -23,16 +23,16 @@
     },
     {
         "key": "ctrl+shift+k",
-        "command": "-editor.action.deleteLines",
+        "command": "editor.action.deleteLines",
         "when": "textInputFocus && !editorReadonly"
     },
     {
-        "key": "ctrl+1",
+        "key": "ctrl+`",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
     },
     {
-        "key": "ctrl+`",
+        "key": "ctrl+shift+`",
         "command": "-workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
     },

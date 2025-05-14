@@ -1,22 +1,21 @@
 {
+    // Terminal settings
     "terminal.integrated.defaultProfile.windows": "PowerShell",
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.cursorStyleInactive": "underline",
-    "terminal.integrated.fontSize": 19,
     "terminal.explorerKind": "integrated",
     "terminal.integrated.allowChords": true,
     "terminal.integrated.shellIntegration.enabled": true,
-    "terminal.integrated.profiles.windows": {
-        "PowerShell": {
-            "source": "PowerShell",
-            "icon": "terminal-powershell"
-        }
-    },
     "terminal.integrated.gpuAcceleration": "on",
     "terminal.integrated.windowsEnableConpty": true,
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.defaultLocation": "editor",
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.mouseWheelZoom": true,
+    "terminal.integrated.mouseWheelScrollSensitivity": 10,
+
+    // Editor settings
     "editor.tabSize": 4,
     "editor.insertSpaces": false,
     "editor.tabCompletion": "on",
@@ -26,10 +25,32 @@
     "editor.fontFamily": "Iosevka,JetBrains Mono, Consolas, 'Courier New', monospace",
     "editor.fontVariations": false,
     "editor.minimap.renderCharacters": false,
+    "editor.cursorStyle": "line",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.minimap.enabled": false,
+    "editor.mouseWheelZoom": true,
+
+    // Workbench & window settings
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.tabSizingFixedMaxWidth": 100,
+    "workbench.editor.tabSizingFixedMinWidth": 38,
+    "window.density.editorTabHeight": "compact",
+    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.sideBar.location": "right",
+    "window.customTitleBarVisibility": "windowed",
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "workbench.startupEditor": "none",
+    "window.newWindowDimensions": "inherit",
+    "window.restoreWindows": "all",
+    "window.titleBarStyle": "custom",
+    "window.zoomLevel": 0,
+    "window.commandCenter": false,
+
+    // Color customizations
     "workbench.colorCustomizations": {
+        "terminalCursor.foreground": "#2fff67",
         "terminal.foreground": "#cbced1",
         "terminal.background": "#000000",
-        "terminalCursor.foreground": "#2fff67",
         "terminal.ansiBlack": "#000000",
         "terminal.ansiRed": "#ff0000",
         "terminal.ansiGreen": "#00ff00",
@@ -47,31 +68,25 @@
         "terminal.ansiBrightCyan": "#66ffff",
         "terminal.ansiBrightWhite": "#ffffff"
     },
+
+    // Language specific settings
     "[csharp]": {
         "editor.defaultFormatter": "ms-dotnettools.csharp",
         "editor.formatOnSave": true,
         "editor.formatOnType": true
     },
     "csharp.format.enable": true,
+
+    // Explorer & git
     "explorer.confirmDelete": false,
-    "git.openRepositoryInParentFolders": "never",
     "explorer.confirmDragAndDrop": false,
+    "git.openRepositoryInParentFolders": "never",
+
+    // Debug
     "debug.onTaskErrors": "showErrors",
-    "workbench.colorTheme": "Visual Studio Dark",
-    "workbench.sideBar.location": "right",
-    "workbench.editor.highlightModifiedTabs": true,
-    "workbench.editor.tabSizingFixedMaxWidth": 100,
-    "workbench.editor.tabSizingFixedMinWidth": 38,
-    "window.density.editorTabHeight": "compact",
-    "window.customTitleBarVisibility": "windowed",
-    "diffEditor.hideUnchangedRegions.enabled": true,
-    "workbench.startupEditor": "none",
-    "window.newWindowDimensions": "inherit",
-    "window.restoreWindows": "all",
-    "window.titleBarStyle": "custom",
-    "editor.minimap.enabled": false,
+
+    // Miscellaneous
     "chat.commandCenter.enabled": false,
-	"window.commandCenter": false,
-	"window.zoomLevel": 0,
-	"security.workspace.trust.untrustedFiles": "open",
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.list.mouseWheelScrollSensitivity": 10
 }
