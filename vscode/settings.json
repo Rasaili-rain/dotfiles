@@ -29,7 +29,6 @@
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.minimap.enabled": false,
     "editor.mouseWheelZoom": true,
-    "editor.wordWrap":"on"
 
     // Workbench & window settings
     "workbench.editor.highlightModifiedTabs": true,
@@ -74,23 +73,9 @@
     "[csharp]": {
         "editor.defaultFormatter": "ms-dotnettools.csharp",
         "editor.formatOnSave": true,
-        "editor.formatOnType": true,
-        "editor.codeLens":false
+        "editor.formatOnType": true
     },
     "csharp.format.enable": true,
-        "[dart]": {
-        "editor.defaultFormatter": "Dart-Code.dart-code",
-        "editor.tabSize": 2,
-        "editor.insertSpaces": false,
-        "editor.detectIndentation": false,
-        "editor.suggest.insertMode": "insert",
-        "editor.inlayHints.enabled": "offUnlessPressed",
-        "editor.formatOnSave": true,
-        "editor.formatOnSaveMode": "file"
-    },
-    "dart.flutterHotReloadOnSave": "all",
-    "dart.lineLength": 120,
-    "dart.enableSdkFormatter": true,
 
     // Explorer & git
     "explorer.confirmDelete": false,
