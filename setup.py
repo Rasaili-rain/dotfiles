@@ -14,8 +14,8 @@ CONFIGS = {
     "vscode/keybindings.json": ".config/Code/User/keybindings.json",
 }
 
-def create_symlinks():
-    """Create symlinks for dotfiles in the home directory."""
+def copy_configs():
+    """Copy dotfiles to their target locations in the home directory."""
     for src, dst in CONFIGS.items():
         src_path = DOTFILES_DIR / src
         dst_path = HOME / dst
@@ -23,19 +23,19 @@ def create_symlinks():
         # Ensure the destination directory exists
         dst_path.parent.mkdir(parents=True, exist_ok=True)
 
-        # Remove existing file or symlink if it exists
-        if dst_path.exists() or dst_path.is_symlink():
+        # Remove existing file if it exists
+        if dst_path.exists():
             print(f"Removing existing {dst_path}")
             dst_path.unlink()
 
-        # Create the symlink
-        print(f"Creating symlink: {src_path} -> {dst_path}")
-        dst_path.symlink_to(src_path)
+        # Copy the file
+        print(f"Copying {src_path} -> {dst_path}")
+        shutil.copy2(src_path, dst_path)
 
 def main():
-    print("Setting up dotfiles...")
-    create_symlinks()
-    print("Setup complete!")
+    print("Setting up dotfiles by copying configurations...")
+    copy_configs()
+    print("Setup complete! You can now safely delete the dotfiles repository.")
 
 if __name__ == "__main__":
     main()
