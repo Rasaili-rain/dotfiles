@@ -88,5 +88,6 @@
     // Miscellaneous
     "chat.commandCenter.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
-    "workbench.list.mouseWheelScrollSensitivity": 10
+    "workbench.list.mouseWheelScrollSensitivity": 10,
+    "git.autofetch": true
 }
