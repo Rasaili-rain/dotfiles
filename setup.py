@@ -1,86 +1,195 @@
 #!/usr/bin/env python3
 import os
-import shutil
-from pathlib import Path
-import subprocess
 import sys
-import pwd
+import shutil
+import subprocess
+from pathlib import Path
 
-def get_user_home():
-    if 'SUDO_USER' in os.environ:
-        user = os.environ['SUDO_USER']
-        return Path(pwd.getpwnam(user).pw_dir)
-    return Path.home()
+HOME = Path.home()
+DOTFILES_DIR = Path(__file__).resolve().parent
 
-USER_HOME = get_user_home()
-DOTFILES_DIR = Path(__file__).parent
-FONTS_DIR = DOTFILES_DIR / "assets" / "fonts"
-SYSTEM_FONTS_DIR = Path("/usr/local/share/fonts")
+def run(cmd):
+    print(f"[CMD]    {cmd}")
+    return subprocess.run(cmd, shell=True, check=False)
 
-CONFIGS = {
-    "linux/kitty/kitty.conf": ".config/kitty/kitty.conf",
-    "linux/plasma-org.kde.plasma.desktop-appletsrc": ".config/plasma-org.kde.plasma.desktop-appletsrc",
-    "vscode/settings.json": ".config/Code/User/settings.json",
-    "vscode/keybindings.json": ".config/Code/User/keybindings.json",
-}
+def detect_distro():
+    if os.path.exists("/etc/os-release"):
+        with open("/etc/os-release") as f:
+            for line in f:
+                if line.startswith("ID="):
+                    return line.strip().split("=")[1].strip('"')
+    return "unknown"
 
-def check_root_privileges():
-    if os.geteuid() != 0:
-        print("Error: Font installation requires root privileges. Please run the script with sudo.")
+def detect_desktop_env():
+    de = os.environ.get("XDG_CURRENT_DESKTOP", "").lower()
+    if "kde" in de: return "kde"
+    elif "gnome" in de: return "gnome"
+    return "other"
+
+def is_installed(cmd): return shutil.which(cmd) is not None
+
+def install_pkgs(pkgs, distro):
+    missing = [p for p in pkgs if not is_installed(p)]
+    if not missing:
+        print(f"[INFO] All packages already installed: {' '.join(pkgs)}")
+        return
+    print(f"\n [INFO] Installing missing packages: {' '.join(missing)}")
+    if distro in ["arch", "manjaro", "endeavouros"]:
+        run("pacman -Syu --noconfirm " + " ".join(missing))
+    elif distro in ["ubuntu", "debian", "pop", "linuxmint"]:
+        run("apt update -y && apt install -y " + " ".join(missing))
+    else:
+        print(f" [INFO] Unsupported distro: {distro}")
         sys.exit(1)
 
+def install_snap(distro):
+    if is_installed("snap"):
+        print(" [INFO] Snap already installed.")
+        return
+    print("\n[INFO]  Installing snapd...")
+    if distro in ["arch", "manjaro", "endeavouros"]:
+        run("pacman -S --noconfirm snapd")
+        run("systemctl enable --now snapd.socket")
+        run("ln -sf /var/lib/snapd/snap /snap")
+    elif distro in ["ubuntu", "debian", "pop", "linuxmint"]:
+        run("apt install -y snapd")
+        run("systemctl enable --now snapd.apparmor || true")
+    else:
+        print(" [INFO] Snap not supported on this distro.")
+
+# ---------------- System Setup ---------------- #
 def install_fonts():
-    print("Installing system-wide fonts...")
-    
-    if not FONTS_DIR.exists():
-        print(f"Error: Fonts directory {FONTS_DIR} not found in the repository.")
-        sys.exit(1)
+    fonts_src = DOTFILES_DIR / "assets" / "fonts"
+    fonts_dst = Path("/usr/share/fonts/truetype/custom")
+    if not fonts_src.exists():
+        print("[INFO]  No fonts found, skipping font installation.")
+        return
+    fonts_dst.mkdir(parents=True, exist_ok=True)
+    for font in fonts_src.iterdir():
+        if font.is_file():
+            print(f" [INFO] Installing font: {font.name}")
+            shutil.copy2(font, fonts_dst)
+    run("fc-cache -fv")
 
-    SYSTEM_FONTS_DIR.mkdir(parents=True, exist_ok=True)
+def install_oh_my_zsh():
+    if not (HOME / ".oh-my-zsh").exists():
+        print(" [INFO] Installing Oh My Zsh...")
+        run('sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"')
+    else:
+        print("[INFO]  Oh My Zsh already installed.")
 
-    font_files = list(FONTS_DIR.glob("*.ttf")) + list(FONTS_DIR.glob("*.otf"))
-    if not font_files:
-        print(f"Error: No .ttf or .otf font files found in {FONTS_DIR}.")
-        sys.exit(1)
+def install_powerlevel10k():
+    theme_dir = HOME / ".oh-my-zsh/custom/themes/powerlevel10k"
+    if not theme_dir.exists():
+        print("[INFO]  Installing Powerlevel10k theme...")
+        run(f"git clone --depth=1 https://github.com/romkatv/powerlevel10k.git {theme_dir}")
+    else:
+        print("[INFO] Powerlevel10k already exists.")
 
-    for font_file in font_files:
-        dst_path = SYSTEM_FONTS_DIR / font_file.name
-        print(f"Installing {font_file.name} -> {dst_path}")
-        shutil.copy2(font_file, dst_path)
+def install_zsh_plugins():
+    plugins_dir = HOME / ".oh-my-zsh/custom/plugins"
+    plugins_dir.mkdir(parents=True, exist_ok=True)
+    repos = {
+        "zsh-autosuggestions": "https://github.com/zsh-users/zsh-autosuggestions.git",
+        "zsh-syntax-highlighting": "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+    }
+    for name, repo in repos.items():
+        path = plugins_dir / name
+        if not path.exists():
+            print(f"[INFO]  Installing {name}...")
+            run(f"git clone {repo} {path}")
+        else:
+            print(f"[INFO]  {name} already exists.")
 
-    try:
-        print("Updating font cache...")
-        subprocess.run(["fc-cache", "-fv"], check=True)
-        print("Font cache updated successfully.")
-    except subprocess.CalledProcessError as e:
-        print(f"Error updating font cache: {e}")
-        sys.exit(1)
+def configure_zsh_theme():
+    zshrc = HOME / ".zshrc"
+    if not zshrc.exists():
+        zshrc.touch()
+    with open(zshrc, "r") as f:
+        lines = f.readlines()
+    new_lines = []
+    for line in lines:
+        if line.startswith("ZSH_THEME="):
+            line = 'ZSH_THEME="powerlevel10k/powerlevel10k"\n'
+        elif line.startswith("plugins="):
+            line = 'plugins=(git zsh-autosuggestions zsh-syntax-highlighting)\n'
+        new_lines.append(line)
+    if not any(l.startswith("ZSH_THEME=") for l in new_lines):
+        new_lines.append('ZSH_THEME="powerlevel10k/powerlevel10k"\n')
+    if not any(l.startswith("plugins=") for l in new_lines):
+        new_lines.append('plugins=(git zsh-autosuggestions zsh-syntax-highlighting)\n')
+    with open(zshrc, "w") as f:
+        f.writelines(new_lines)
+    print("[INFO] Zsh configured with Powerlevel10k + plugins.")
 
-def copy_configs():
-    print("Copying configuration files...")
-    for src, dst in CONFIGS.items():
-        src_path = DOTFILES_DIR / src
-        dst_path = USER_HOME / dst
+def copy_configs(desktop_env):
+    print("\n [INFO] Copying configuration files...")
+    # Common configs
+    linux_dir = DOTFILES_DIR / "linux"
+    for root, _, files in os.walk(linux_dir):
+        rel = Path(root).relative_to(linux_dir)
+        target = HOME / ".config" / rel
+        target.mkdir(parents=True, exist_ok=True)
+        for file in files:
+            shutil.copy2(Path(root) / file, target / file)
+            print(f"[INFO] → Copied {file} to {target}")
 
-        if not src_path.exists():
-            print(f"Warning: Source file {src_path} does not exist. Skipping.")
-            continue
+    # VSCode configs
+    vscode_dir = DOTFILES_DIR / "vscode"
+    vscode_target = HOME / ".config/Code/User"
+    vscode_target.mkdir(parents=True, exist_ok=True)
+    for file in vscode_dir.iterdir():
+        shutil.copy2(file, vscode_target / file.name)
+        print(f"[INFO] → Copied {file.name} to VSCode configs")
 
-        dst_path.parent.mkdir(parents=True, exist_ok=True)
+    # KDE-specific config
+    if desktop_env == "kde":
+        kde_dir = linux_dir /"kde"
+        plasma_src = kde_dir/"plasma-org.kde.plasma.desktop-appletsrc"
+        plasma_dst = HOME / ".config/plasma-org.kde.plasma.desktop-appletsrc"
+        if plasma_src.exists():
+            shutil.copy2(plasma_src, plasma_dst)
+            print("[INFO]  Applied KDE Plasma configuration.")
+    elif desktop_env == "gnome":
+        gnome_dir = linux_dir /"gnome"
+        print("[INFO]  GNOME detected — skipping KDE config.")
 
-        if dst_path.exists():
-            print(f"Removing existing {dst_path}")
-            dst_path.unlink()
+def set_default_shell():
+    print("\n [INFO] Setting Zsh as default shell...")
+    run("chsh -s $(which zsh)")
 
-        print(f"Copying {src_path} -> {dst_path}")
-        shutil.copy2(src_path, dst_path)
-
+# ---------------- Main ---------------- #
 def main():
-    print("Setting up dotfiles and fonts...")    
-    check_root_privileges()
+    if os.geteuid() != 0:
+        print("[INFO] Please run with sudo: sudo python3 setup.py")
+        sys.exit(1)
+
+    distro = detect_distro()
+    desktop_env = detect_desktop_env()
+    print(f"[INFO] Distro: {distro} |  Desktop: {desktop_env}")
+
+    core_pkgs = ["curl", "git", "zsh", "tree", "cava", "btop"]
+    install_pkgs(core_pkgs, distro)
+
+    # Fastfetch / Neofetch
+    if not (is_installed("fastfetch") or is_installed("neofetch")):
+        install_pkgs(["fastfetch"], distro)
+        if not is_installed("fastfetch"):
+            install_pkgs(["neofetch"], distro)
+
+    # Snapd
+    install_snap(distro)
+
+    # Fonts & Configs
     install_fonts()
-    copy_configs()
-    print("Setup complete! You can now safely delete the dotfiles repository.")
+    install_oh_my_zsh()
+    install_powerlevel10k()
+    install_zsh_plugins()
+    copy_configs(desktop_env)
+    configure_zsh_theme()
+    set_default_shell()
+
+    print("\n [INFO] System setup complete! Run `exec zsh` or reboot to apply.")
 
 if __name__ == "__main__":
     main()
