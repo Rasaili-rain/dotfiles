@@ -1,0 +1,31 @@
+
+#waybar {
+    height: 45px;         
+}
+
+* {
+    font-size: 16px;     
+    font-family: "JetBrainsMono Nerd Font", monospace;
+}
+
+#workspaces button {
+    padding: 8px 16px;    
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+tooltip {
+    font-size: 16px;
+    padding: 10px 12px;
+    border-radius: 8px;
+}
+
+menu, window, popup {
+    font-size: 16px;
+    padding: 12px;
+    min-width: 400px;
+}
+
+#waybar > .module {
+    margin: 0 6px;
+}

@@ -1,0 +1,25 @@
+2025-11-28 21:24:16.627 [info] (Client) Pylance client (2025.10.2) started with python extension (2025.18.0)
+2025-11-28 21:24:16.830 [info] (73564) Server root directory: file:///home/rain/.vscode/extensions/ms-python.vscode-pylance-2025.10.2/dist
+2025-11-28 21:24:16.830 [info] (73564) Pylance language server 2025.10.2 (pyright version 1.1.406, commit 20aa20a1) starting
+2025-11-28 21:24:16.833 [info] (73564) Starting service instance "KUSM-bkend" for workspace "/home/rain/p/KUSM-bkend"
+2025-11-28 21:24:16.883 [info] (73564) Starting Mcp server id:4555 ...
+2025-11-28 21:24:16.896 [info] (73564) Loading pyproject.toml file at /home/rain/p/KUSM-bkend/pyproject.toml
+2025-11-28 21:24:16.897 [info] (73564) Pyproject file "/home/rain/p/KUSM-bkend/pyproject.toml" has no "[tool.pyright]" section.
+2025-11-28 21:24:16.897 [info] (73564) Setting environmentName for service "KUSM-bkend": "kusm-backend (3.13.7)"
+2025-11-28 21:24:16.897 [info] (73564) Setting pythonPath for service "KUSM-bkend": "/home/rain/p/KUSM-bkend/.venv/bin/python"
+2025-11-28 21:24:16.897 [info] (73564) No include entries specified; assuming /home/rain/p/KUSM-bkend
+2025-11-28 21:24:16.898 [info] (73564) Auto-excluding **/node_modules
+2025-11-28 21:24:16.898 [info] (73564) Auto-excluding **/__pycache__
+2025-11-28 21:24:16.898 [info] (73564) Auto-excluding **/.*
+2025-11-28 21:24:16.914 [info] (73564) Assuming Python version 3.13.7.final.0
+2025-11-28 21:24:16.965 [info] (73564) Found 9 source files
+2025-11-28 21:24:16.973 [info] (73564) Settings have not changed. Skipping update.
+2025-11-28 21:24:16.977 [info] (73564) Settings have not changed. Skipping update.
+2025-11-28 21:24:16.981 [info] (73564) Settings have not changed. Skipping update.
+2025-11-28 21:24:17.389 [info] (73564) BG: Priority queue background worker(2) root directory: file:///home/rain/.vscode/extensions/ms-python.vscode-pylance-2025.10.2/dist
+2025-11-28 21:24:17.389 [info] (73564) BG: Priority queue background worker(2) started
+2025-11-28 21:24:17.483 [info] (73564) BG: Indexer background runner(3) root directory: file:///home/rain/.vscode/extensions/ms-python.vscode-pylance-2025.10.2/dist (index)
+2025-11-28 21:24:17.483 [info] (73564) BG: Indexing(3) started
+2025-11-28 21:24:17.675 [info] (73564) BG: scanned(3) 63 files over 1 exec env
+2025-11-28 21:24:17.762 [info] (73564) BG: indexed(3) 63 files over 1 exec env
+2025-11-28 21:24:17.770 [info] (73564) BG: Indexing finished(3).

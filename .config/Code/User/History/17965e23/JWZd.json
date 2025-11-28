@@ -1,0 +1,83 @@
+{
+    // Terminal settings
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.cursorStyleInactive": "underline",
+    "terminal.explorerKind": "integrated",
+    "terminal.integrated.allowChords": true,
+    "terminal.integrated.shellIntegration.enabled": true,
+    "terminal.integrated.gpuAcceleration": "on",
+    "terminal.integrated.windowsEnableConpty": true,
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.defaultLocation": "editor",
+    "terminal.integrated.fontSize": 26,
+    "terminal.integrated.mouseWheelZoom": true,
+    "terminal.integrated.mouseWheelScrollSensitivity": 10,
+    // Editor settings
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "editor.tabCompletion": "on",
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.inlineSuggest.enabled": false,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Iosevka,JetBrains Mono, Consolas, 'Courier New', monospace",
+    "editor.fontVariations": false,
+    "editor.minimap.renderCharacters": false,
+    "editor.cursorStyle": "line",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.minimap.enabled": false,
+    "editor.mouseWheelZoom": true,
+    // Workbench & window settings
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.tabSizingFixedMaxWidth": 100,
+    "workbench.editor.tabSizingFixedMinWidth": 38,
+    "window.density.editorTabHeight": "compact",
+    "workbench.sideBar.location": "right",
+    "window.customTitleBarVisibility": "windowed",
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "workbench.startupEditor": "none",
+    "window.newWindowDimensions": "inherit",
+    "window.restoreWindows": "all",
+    "window.titleBarStyle": "custom",
+    "window.zoomLevel": 0,
+    "window.commandCenter": false,
+    "workbench.colorCustomizations": {
+        // Cursor
+        "terminalCursor.foreground": "#F5E0DC",
+        // Foreground & Background
+        "terminal.foreground": "#CDD6F4",
+        "terminal.background": "#1E1E2E",
+        // Selection
+        "terminal.selectionBackground": "#F5E0DC",
+        "terminal.selectionForeground": "#1E1E2E",
+        // ANSI colors (Catppuccin Mocha)
+        "terminal.ansiBlack": "#43465A", // color0
+        "terminal.ansiBrightBlack": "#43465A", // color8
+        "terminal.ansiRed": "#F38BA8", // color1
+        "terminal.ansiBrightRed": "#F38BA8", // color9
+        "terminal.ansiGreen": "#A6E3A1", // color2
+        "terminal.ansiBrightGreen": "#A6E3A1", // color10
+        "terminal.ansiYellow": "#F9E2AF", // color3
+        "terminal.ansiBrightYellow": "#F9E2AF", // color11
+        "terminal.ansiBlue": "#87B0F9", // color4
+        "terminal.ansiBrightBlue": "#87B0F9", // color12
+        "terminal.ansiMagenta": "#F5C2E7", // color5
+        "terminal.ansiBrightMagenta": "#F5C2E7", // color13
+        "terminal.ansiCyan": "#94E2D5", // color6
+        "terminal.ansiBrightCyan": "#94E2D5", // color14
+        "terminal.ansiWhite": "#CDD6F4", // color7
+        "terminal.ansiBrightWhite": "#A1A8C9" // color15
+    },
+    // Explorer & git
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "git.openRepositoryInParentFolders": "never",
+    // Debug
+    "debug.onTaskErrors": "showErrors",
+    // Miscellaneous
+    "chat.commandCenter.enabled": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.list.mouseWheelScrollSensitivity": 10,
+    "git.autofetch": true
+}

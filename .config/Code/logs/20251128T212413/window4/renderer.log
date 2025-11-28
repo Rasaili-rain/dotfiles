@@ -1,0 +1,15 @@
+2025-11-28 21:33:43.539 [info] Started local extension host with pid 75632.
+2025-11-28 21:33:44.266 [info] MCP Registry configured: https://api.mcp.github.com
+2025-11-28 21:33:44.316 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-11-28 21:33:46.171 [info] [perf] Render performance baseline is 18ms
+2025-11-28 21:34:04.455 [error] Error: The editor could not be opened because the file was not found.
+    at $Le.gc (vscode-file://vscode-app/var/lib/snapd/snap/code/214/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2723:82078)
+    at async $Le.setInput (vscode-file://vscode-app/var/lib/snapd/snap/code/214/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2723:81236)
+    at async rJe.S (vscode-file://vscode-app/var/lib/snapd/snap/code/214/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:697:58520)
+    at async rJe.L (vscode-file://vscode-app/var/lib/snapd/snap/code/214/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:697:57080)
+    at async rJe.openEditor (vscode-file://vscode-app/var/lib/snapd/snap/code/214/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:697:56162)
+    at async vscode-file://vscode-app/var/lib/snapd/snap/code/214/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:809:23355
+    at async gF.openEditors (vscode-file://vscode-app/var/lib/snapd/snap/code/214/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:809:23744)
+    at async Promise.all (index 0)
+    at async Object.e [as settled] (vscode-file://vscode-app/var/lib/snapd/snap/code/214/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:81750)
+    at async EYe.openEditors (vscode-file://vscode-app/var/lib/snapd/snap/code/214/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1313:33883)

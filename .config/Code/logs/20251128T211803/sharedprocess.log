@@ -1,0 +1,5 @@
+2025-11-28 21:18:04.052 [info] Marked extension as removed catppuccin.catppuccin-vsc-3.18.1
+2025-11-28 21:18:04.052 [info] Marked extension as removed esbenp.prettier-vscode-11.0.0
+2025-11-28 21:18:04.054 [info] Deleted marked for removal extension from disk catppuccin.catppuccin-vsc /home/rain/.vscode/extensions/catppuccin.catppuccin-vsc-3.18.1
+2025-11-28 21:18:04.054 [info] Deleted marked for removal extension from disk esbenp.prettier-vscode /home/rain/.vscode/extensions/esbenp.prettier-vscode-11.0.0
+2025-11-28 21:18:04.055 [info] Deleted marked for removal extension from disk qwtel.sqlite-viewer /home/rain/.vscode/extensions/qwtel.sqlite-viewer-0.10.6-linux-x64

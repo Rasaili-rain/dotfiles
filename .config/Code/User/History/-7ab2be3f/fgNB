@@ -1,0 +1,5 @@
+GOOGLE_CLIENT_ID=561881653940-03no1890plvl8l6vtb90nvo1d5kflh8c.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=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
+SECRET_KEY=your_super_secret_key_for_jwt
+FRONTEND_URL=http://localhost:5173
+BACKEND_URL=http://localhost:8000

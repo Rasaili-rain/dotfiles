@@ -1,0 +1,11 @@
+2025-11-28 21:33:38.814 [info] Extension host with pid 75329 started
+2025-11-28 21:33:38.814 [info] Skipping acquiring lock for /home/rain/.config/Code/User/workspaceStorage/1ed9078fe4eff4f9f86bece446a24eb6.
+2025-11-28 21:33:38.858 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-11-28 21:33:38.875 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-11-28 21:33:38.943 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-11-28 21:33:38.984 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-11-28 21:33:39.021 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-11-28 21:33:39.314 [warning] [Decorations] CAPPING events from decorations provider vscode.git 1843
+2025-11-28 21:33:39.335 [info] Extension host terminating: renderer closed the MessagePort
+2025-11-28 21:33:39.345 [info] Eager extensions activated
+2025-11-28 21:33:39.345 [info] Extension host with pid 75329 exiting with code 0

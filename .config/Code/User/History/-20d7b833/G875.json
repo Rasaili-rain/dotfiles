@@ -1,0 +1,93 @@
+{
+    // Terminal settings
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.cursorStyleInactive": "underline",
+    "terminal.explorerKind": "integrated",
+    "terminal.integrated.allowChords": true,
+    "terminal.integrated.shellIntegration.enabled": true,
+    "terminal.integrated.gpuAcceleration": "on",
+    "terminal.integrated.windowsEnableConpty": true,
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.defaultLocation": "editor",
+    "terminal.integrated.fontSize": 26,
+    "terminal.integrated.mouseWheelZoom": true,
+    "terminal.integrated.mouseWheelScrollSensitivity": 10,
+
+    // Editor settings
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "editor.tabCompletion": "on",
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.inlineSuggest.enabled": false,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Iosevka,JetBrains Mono, Consolas, 'Courier New', monospace",
+    "editor.fontVariations": false,
+    "editor.minimap.renderCharacters": false,
+    "editor.cursorStyle": "line",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.minimap.enabled": false,
+    "editor.mouseWheelZoom": true,
+
+    // Workbench & window settings
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.tabSizingFixedMaxWidth": 100,
+    "workbench.editor.tabSizingFixedMinWidth": 38,
+    "window.density.editorTabHeight": "compact",
+    "workbench.colorTheme": "Atom One Dark",
+    "workbench.sideBar.location": "right",
+    "window.customTitleBarVisibility": "windowed",
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "workbench.startupEditor": "none",
+    "window.newWindowDimensions": "inherit",
+    "window.restoreWindows": "all",
+    "window.titleBarStyle": "custom",
+    "window.zoomLevel": 0,
+    "window.commandCenter": false,
+
+    // Color customizations
+    "workbench.colorCustomizations": {
+        "terminalCursor.foreground": "#2fff67",
+        "terminal.foreground": "#cbced1",
+        "terminal.background": "#000000",
+        "terminal.ansiBlack": "#000000",
+        "terminal.ansiRed": "#ff0000",
+        "terminal.ansiGreen": "#00ff00",
+        "terminal.ansiYellow": "#ffff00",
+        "terminal.ansiBlue": "#0000ff",
+        "terminal.ansiMagenta": "#ff00ff",
+        "terminal.ansiCyan": "#00ffff",
+        "terminal.ansiWhite": "#745d5d",
+        "terminal.ansiBrightBlack": "#666666",
+        "terminal.ansiBrightRed": "#ff6666",
+        "terminal.ansiBrightGreen": "#66ff66",
+        "terminal.ansiBrightYellow": "#ffff66",
+        "terminal.ansiBrightBlue": "#6666ff",
+        "terminal.ansiBrightMagenta": "#ff66ff",
+        "terminal.ansiBrightCyan": "#66ffff",
+        "terminal.ansiBrightWhite": "#ffffff"
+    },
+
+    // Language specific settings
+    "[csharp]": {
+        "editor.defaultFormatter": "ms-dotnettools.csharp",
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true
+    },
+    "csharp.format.enable": true,
+
+    // Explorer & git
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "git.openRepositoryInParentFolders": "never",
+
+    // Debug
+    "debug.onTaskErrors": "showErrors",
+
+    // Miscellaneous
+    "chat.commandCenter.enabled": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.list.mouseWheelScrollSensitivity": 10,
+    "git.autofetch": true
+}

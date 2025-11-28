@@ -1,0 +1,7 @@
+GOOGLE_CLIENT_ID=561881653940-03no1890plvl8l6vtb90nvo1d5kflh8c.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=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
+SECRET_KEY=sameepISGay6969
+FRONTEND_URL=http://localhost:5173
+BACKEND_URL=http://localhost:8000
+DATABASE_URL="psql 'postgresql://neondb_owner:npg_JTVpt0EFK7dk@ep-sparkling-surf-a4jo9sz2-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require'""
+

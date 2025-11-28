@@ -1,0 +1,10 @@
+2025-11-28 21:34:36.824 [info] Started local extension host with pid 76603.
+2025-11-28 21:34:37.454 [info] MCP Registry configured: https://api.mcp.github.com
+2025-11-28 21:34:37.593 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-11-28 21:34:39.450 [info] [perf] Render performance baseline is 17ms
+2025-11-28 21:34:58.504 [error] [File Watcher ('parcel')] Unexpected error: inotify_add_watch on '/home/rain/.config/Code/logs/20251128T181949' failed: No such file or directory (EUNKNOWN) (path: /home/rain)
+2025-11-28 21:34:58.505 [error] [File Watcher (universal)] inotify_add_watch on '/home/rain/.config/Code/logs/20251128T181949' failed: No such file or directory
+2025-11-28 21:35:14.644 [warning] [File Watcher ('parcel')] Watcher shutdown because watched path got deleted (path: /home/rain/.dotfiles-kde)
+2025-11-28 21:35:14.644 [error] [File Watcher (node.js)] Failed to watch /home/rain/.dotfiles-kde/.git/refs/remotes/origin/main for changes using fs.watch() (Error: ENOENT: no such file or directory, watch '/home/rain/.dotfiles-kde/.git/refs/remotes/origin/main')
+2025-11-28 21:35:45.268 [warning] [File Watcher ('parcel')] Watcher shutdown because watched path got deleted (path: /home/rain/p/dotfiled-hyper)
+2025-11-28 21:35:45.268 [error] [File Watcher (node.js)] Failed to watch /home/rain/p/dotfiled-hyper/.git/refs/remotes/origin/main for changes using fs.watch() (Error: ENOENT: no such file or directory, watch '/home/rain/p/dotfiled-hyper/.git/refs/remotes/origin/main')
